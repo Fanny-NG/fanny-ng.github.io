@@ -50,7 +50,7 @@ h1,h2,h3,.brand,.bodycopy blockquote{font-family:'Clash Display','Satoshi',sans-
 .expertise{padding:10px 0 85px}
 .practices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0;border-bottom:1px solid var(--line)}
 .practice{padding:24px 24px 30px;border-right:1px solid var(--line)}
-.practice:first-child{padding-left:0}.practice:last-child{border-right:0}
+.practice:last-child{border-right:0}
 .practices .practice-num{display:block;padding:0;border:0;color:var(--green);font-size:11px;letter-spacing:1px}
 .practice svg{display:block;width:140px;height:130px;color:var(--green);margin:22px 0 30px}
 .practice h3{font-family:'Satoshi',sans-serif;font-weight:500;text-transform:none;font-size:20px;letter-spacing:-.3px;line-height:1.3;margin:0 0 12px}
@@ -59,7 +59,7 @@ h1,h2,h3,.brand,.bodycopy blockquote{font-family:'Clash Display','Satoshi',sans-
 .case .brand span{color:var(--green)}
 .bodycopy blockquote{background:#e3e9dc}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:var(--green)}
-@media(max-width:800px){.about{padding:65px 0 20px}.practices{grid-template-columns:repeat(2,minmax(0,1fr))}.practice{padding:25px 18px;border-bottom:1px solid var(--line)}.practice:nth-child(odd){padding-left:0}.practice:nth-child(even){border-right:0}.practice svg{width:110px;height:110px}.practice h3{font-size:18px}.expertise{padding-bottom:55px}}
+@media(max-width:800px){.about{padding:65px 0 20px}.practices{grid-template-columns:repeat(2,minmax(0,1fr))}.practice{padding:25px 18px;border-bottom:1px solid var(--line)}.practice:nth-child(even){border-right:0}.practice svg{width:110px;height:110px}.practice h3{font-size:18px}.expertise{padding-bottom:55px}}
 @media(max-width:380px){.practice h3{font-size:16px}.practice p{font-size:13px}}
 
 /* Visuel projet bord à bord, sur toute la hauteur */
@@ -184,6 +184,28 @@ nav .action-chevron,footer .action-chevron,.action-text .action-chevron{font-siz
 .contact summary::-webkit-details-marker{display:none}
 .contact details summary.action-secondary:hover{background:var(--sage);color:var(--ink)}
 .contact details[open] summary .action-chevron,.contact details[open] summary:hover .action-chevron{transform:rotate(90deg)}
+
+/* Bloc projet horizontal sur écran large */
+@media(min-width:801px){
+ .project{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);align-items:stretch;min-height:390px;margin-bottom:82px;background:#e8ede3}
+ .project-image{width:auto;min-height:0;aspect-ratio:auto;align-self:stretch}
+ .project-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;padding:clamp(34px,3.6vw,54px)}
+ .project-copy .eyebrow{margin:0 0 18px;font-size:11px}
+ .project-copy h2{margin:0 0 22px;font-size:clamp(30px,3vw,46px);line-height:1.1}
+ .project-copy p{margin:0 0 15px;font-size:15px;line-height:1.6}
+ .project-copy .tags{margin:0 0 16px}
+ .project-copy>.link{align-self:flex-start}
+}
+
+/* Coordonnées visibles dans le bloc contact */
+.contact-links{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:min(100%,320px)}
+.contact-links .action-secondary{max-width:100%;color:var(--bg);overflow-wrap:anywhere}
+.contact-links .action-secondary:hover,.contact-links .action-secondary:focus-visible{color:var(--sage)}
+@media(max-width:800px){.contact-links{width:100%;margin-top:8px}}
+
+/* Fond du header sticky sur toute la largeur, contenu aligné à la grille */
+#home>.wrap>.nav{isolation:isolate;background:transparent;border-bottom:0}
+#home>.wrap>.nav::before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:rgba(247,246,242,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
 .project-open{border-radius:0;width:56px;height:56px;font-family:'Satoshi',sans-serif;font-weight:400;font-size:30px}
 @media(max-width:600px){.hero-bottom .hero-cta,.action-secondary,.project-copy>.action-secondary,.case .case-return.action-secondary{padding:14px 20px;min-height:52px}.project-open{width:44px;height:44px;font-size:26px}nav{gap:14px}nav a{gap:5px}}
 @media(prefers-reduced-motion:reduce){.action-chevron{transition:none!important}}
@@ -242,3 +264,17 @@ nav .action-chevron,footer .action-chevron,.action-text .action-chevron{font-siz
 .phase-description{margin-top:28px!important}.popin-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 35px}.case .web-context{max-width:880px;margin:35px auto}
 .asset-scroll img{width:auto;max-width:100%;height:auto;max-height:none;margin:0 auto}.asset-scroll img.natural{max-width:none;margin:0}.asset-toolbar button{color:var(--bg)}
 @media(max-width:800px){.check-entry{grid-template-columns:1fr;gap:28px;margin:30px 0 40px}.check-entry .evidence{max-width:320px;margin:auto}.check-entry>div{order:-1}.check-gallery{grid-template-columns:1fr;gap:40px}.check-gallery .evidence{width:100%;max-width:350px;margin:auto}.check-details{grid-template-columns:1fr;gap:20px}.check-details .evidence{max-width:350px;margin:20px auto}.phase-pair{grid-template-columns:1fr;gap:32px}.phase-pair .phase-phone{max-width:350px;width:100%;margin:auto}.popin-gallery{grid-template-columns:1fr}.case .cs-nav{gap:8px 18px}.asset-toolbar button{padding:10px 12px}}
+
+/* Accroche d’introduction */
+.hero-message p{font-family:'Clash Display','Satoshi',sans-serif;font-size:clamp(22px,1.8vw,28px);font-weight:600;line-height:1.25;letter-spacing:-.025em;color:var(--ink);white-space:nowrap}
+.hero-dash{color:inherit}
+@media(max-width:800px){.hero-message p{font-size:20px;line-height:1.35;white-space:normal}}
+
+/* Chevrons SVG, centrés par leur viewBox */
+.action-chevron{display:block;width:16px;height:16px;font-size:0!important;line-height:0;border:0;overflow:visible;flex:0 0 auto;align-self:center;transform:none;transform-origin:center;color:currentColor!important;transition:transform .2s ease}
+.action-chevron path{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.hero .hero-cta:hover .action-chevron,.project:hover .action-secondary .action-chevron,.action-secondary:hover .action-chevron{transform:translateX(3px)}
+.action-chevron.chevron-back{transform:rotate(180deg)}
+.action-secondary:hover .chevron-back,.action-text:hover .chevron-back{transform:translateX(-3px) rotate(180deg)}
+.action-chevron.chevron-up{transform:rotate(-90deg)}
+.contact details[open] summary .action-chevron,.contact details[open] summary:hover .action-chevron{transform:rotate(90deg)}
