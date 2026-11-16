@@ -278,3 +278,7 @@ nav .action-chevron,footer .action-chevron,.action-text .action-chevron{font-siz
 .action-secondary:hover .chevron-back,.action-text:hover .chevron-back{transform:translateX(-3px) rotate(180deg)}
 .action-chevron.chevron-up{transform:rotate(-90deg)}
 .contact details[open] summary .action-chevron,.contact details[open] summary:hover .action-chevron{transform:rotate(90deg)}
+
+.project-image { background: #fffaef; }
+.project-image picture img { object-fit: contain; object-position: center bottom; }
+@media (max-width: 800px) { .project-image { aspect-ratio: 16 / 9; } }
